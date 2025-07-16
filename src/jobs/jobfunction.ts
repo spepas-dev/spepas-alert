@@ -10,14 +10,14 @@ export async function jobFunction({ serviceName, serviceUrl }: { serviceName: st
   })
     .then((res) => {
       if (res.ok) {
-        console.log(`[OK] ${serviceName} is UP: ${serviceUrl}`);
+        // console.log(`[OK] ${serviceName} is UP: ${serviceUrl}`);
       } else {
-        console.error(`[ERROR] Unexpected response code: ${res.statusText}`);
+        // console.error(`[ERROR] Unexpected response code: ${res.statusText}`);
         sendAlert({ serviceName, serviceUrl });
       }
     })
-    .catch((err) => {
+    .catch(() => {
       sendAlert({ serviceName, serviceUrl });
-      console.error('❌ Error sending alert:', err);
+      // console.error('❌ Error sending alert:', err);
     });
 }

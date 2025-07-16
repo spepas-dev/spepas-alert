@@ -12,10 +12,10 @@ export async function sendAlert({ serviceName, serviceUrl }: { serviceName: stri
   })
     .then((res) => {
       if (res.ok) {
-        console.log('✅ Alert sent to Microsoft Teams');
+        // console.log('✅ Alert sent to Microsoft Teams');
       } else {
-        console.error('❌ Failed to send alert', res.statusText);
+        // console.error('❌ Failed to send alert', res.statusText);
       }
     })
-    .catch((err) => console.error('❌ Error sending alert:', err));
+    .catch(() => {});
 }

@@ -10,21 +10,21 @@ app.use(express.urlencoded({ extended: true }));
 app.set('trust proxy', true);
 
 export function startScheduler() {
-  cron.schedule('*/1 * * * *', async () => {
-    console.log('Cron job triggered');
+  cron.schedule('*/5 * * * *', async () => {
+    // console.log('Cron job triggered');
 
     await Promise.all(
       jobs?.map(async (job) => {
         try {
           await job.handler();
-          console.log(`${job.job_name} completed`);
+          // console.log(`${job.job_name} completed`);
         } catch (err) {
           console.log(`${job.job_name} failed: ${(err as Error).message}`);
         }
       })
     );
 
-    console.log('All jobs completed');
+    // console.log('All jobs completed');
   });
 }
 
